@@ -48,13 +48,6 @@
         <label>Or analyze a recorded video:</label>
         <input type="file" id="file" accept="video/*">
       </div>
-      <div class="row">
-        <button id="barbellBtn">🎯 Set Barbell Tracker</button>
-        <span class="hint">Tap the barbell knurl in the video to initialize.</span>
-      </div>
-      <div class="row tips">
-        Tips: true side view • hips+knees visible • 8–12ft away • good lighting • avoid black-on-black
-      </div>
     </section>
 
     <section id="dashboard">
@@ -74,22 +67,16 @@
           <div id="hipAngles">—° / —°</div>
         </div>
         <div class="card">
-          <h3>Barbell Velocity</h3>
-          <div class="muted">Instant</div>
-          <div id="velInstant">— m/s</div>
-          <div class="muted">Rep Peak</div>
-          <div id="velPeak">— m/s</div>
-        </div>
-        <div class="card">
           <h3>Status</h3>
           <div id="status">Ready</div>
+          <div class="muted">Frames processed</div>
+          <div id="frameCount">0</div>
         </div>
       </div>
     </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5/pose.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3/drawing_utils.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
