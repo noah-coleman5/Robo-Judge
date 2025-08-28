@@ -20,12 +20,12 @@
 
     <section id="video-wrap">
       <video id="video" playsinline muted></video>
-      <canvas id="overlay"></canvas>
-      <div id="hud">
-        <div id="call">Align side view • Stand tall</div>
-        <div id="detail">Hip–Knee: -- cm</div>
-        <div id="score">Depth: -- %</div>
-        <div id="debug">No frames yet…</div>
+      <canvas id="stage"></canvas>
+
+      <div id="recbar">
+        <button id="recBtn">● REC</button>
+        <button id="stopBtn" disabled>■ STOP</button>
+        <a id="dlLink" download="robo-judge-set.webm" style="display:none">Download</a>
       </div>
     </section>
 
@@ -35,23 +35,55 @@
         <input type="range" min="0" max="0.06" step="0.005" value="0.02" id="tol">
         <label>Smoothing: <span id="smVal">5</span></label>
         <input type="range" min="1" max="15" step="1" value="5" id="smooth">
-      </div>
-      <div class="row">
         <label>Accuracy:</label>
         <select id="accuracy">
           <option value="1">Fast</option>
           <option value="2" selected>High</option>
         </select>
+      </div>
+      <div class="row">
         <label>Camera:</label>
         <select id="camera"></select>
         <button id="flip">Flip</button>
-      </div>
-      <div class="row">
-        <label>Or test with a recorded video:</label>
+        <label>Or analyze a recorded video:</label>
         <input type="file" id="file" accept="video/*">
       </div>
+      <div class="row">
+        <button id="barbellBtn">🎯 Set Barbell Tracker</button>
+        <span class="hint">Tap the barbell knurl in the video to initialize.</span>
+      </div>
       <div class="row tips">
-        Tips: true side view • full hips+knees visible • good lighting • step back 8–12 ft • avoid black shorts on black rack
+        Tips: true side view • hips+knees visible • 8–12ft away • good lighting • avoid black-on-black
+      </div>
+    </section>
+
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Depth</h3>
+          <div id="depthStatus">—</div>
+          <div class="muted">Hip–Knee margin</div>
+          <div id="margin">— cm</div>
+        </div>
+        <div class="card">
+          <h3>Angles</h3>
+          <div class="muted">Left Knee / Right Knee</div>
+          <div id="kneeAngles">—° / —°</div>
+          <div class="muted">Left Hip / Right Hip</div>
+          <div id="hipAngles">—° / —°</div>
+        </div>
+        <div class="card">
+          <h3>Barbell Velocity</h3>
+          <div class="muted">Instant</div>
+          <div id="velInstant">— m/s</div>
+          <div class="muted">Rep Peak</div>
+          <div id="velPeak">— m/s</div>
+        </div>
+        <div class="card">
+          <h3>Status</h3>
+          <div id="status">Ready</div>
+        </div>
       </div>
     </section>
   </main>
