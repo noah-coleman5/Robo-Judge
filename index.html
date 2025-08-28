@@ -8,48 +8,55 @@
   <meta name="theme-color" content="#000000">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <title>SquatJudge Web</title>
+  <title>Robo Judge</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
     <header>
-      <h1>SquatJudge</h1>
+      <h1>Robo Judge</h1>
       <p class="sub">USAPL depth helper — on-device</p>
     </header>
 
     <section id="video-wrap">
-      <video id="video" playsinline></video>
+      <video id="video" playsinline muted></video>
       <canvas id="overlay"></canvas>
       <div id="hud">
         <div id="call">Align side view • Stand tall</div>
         <div id="detail">Hip–Knee: -- cm</div>
         <div id="score">Depth: -- %</div>
+        <div id="debug">No frames yet…</div>
       </div>
     </section>
 
     <section id="controls">
       <div class="row">
-        <label>Tolerance (benefit of doubt): <span id="tolVal">0.02</span></label>
+        <label>Tolerance: <span id="tolVal">0.02</span></label>
         <input type="range" min="0" max="0.06" step="0.005" value="0.02" id="tol">
-      </div>
-      <div class="row">
-        <label>Smoothing frames: <span id="smVal">5</span></label>
+        <label>Smoothing: <span id="smVal">5</span></label>
         <input type="range" min="1" max="15" step="1" value="5" id="smooth">
       </div>
       <div class="row">
+        <label>Accuracy:</label>
+        <select id="accuracy">
+          <option value="1">Fast</option>
+          <option value="2" selected>High</option>
+        </select>
         <label>Camera:</label>
         <select id="camera"></select>
         <button id="flip">Flip</button>
       </div>
+      <div class="row">
+        <label>Or test with a recorded video:</label>
+        <input type="file" id="file" accept="video/*">
+      </div>
       <div class="row tips">
-        Tips: true side view • include hips & knees • steady phone • good lighting
+        Tips: true side view • full hips+knees visible • good lighting • step back 8–12 ft • avoid black shorts on black rack
       </div>
     </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5/pose.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3/drawing_utils.js"></script>
   <script src="app.js"></script>
 </body>
