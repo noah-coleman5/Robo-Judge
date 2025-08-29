@@ -19,6 +19,7 @@ label{font-size:14px;opacity:.9}
 input[type=range]{width:200px}
 select,button,input[type=file]{font-size:14px;padding:6px 10px;border-radius:10px;border:1px solid #333;background:#111;color:#eee}
 .tips{color:#aaa;font-size:12px}
+.hint{color:#bbb;font-size:12px}
 #dashboard .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .card{background:#101010;border:1px solid #1f1f1f;border-radius:14px;padding:12px}
 .muted{color:#9aa0a6;font-size:12px}
